@@ -1,0 +1,13 @@
+# Restoran Maris
+> Mediteranski restoran u ACI marini u Vodicama (Artina ul. 13a): riba i plodovi mora s gradela, odresci, doručak do 12 h.
+
+## Ključni podaci
+- Adresa: Artina ul. 13a, 22211 Vodice, Hrvatska (ACI marina Vodice)
+- Telefon i rezervacije: +385 99 661 5770
+- Radno vrijeme: svaki dan 08:00–24:00, doručak do 12:00
+- Jelovnik na hrvatskom, engleskom i njemačkom
+
+## Ključne stranice
+- [Jelovnik](https://artme-nx.github.io/restoran-maris-v5/#menu): jela i cijene
+- [Info i česta pitanja](https://artme-nx.github.io/restoran-maris-v5/#faq): radno vrijeme, rezervacije, terasa
+- [Kontakt i lokacija](https://artme-nx.github.io/restoran-maris-v5/#location): adresa, karta, telefon

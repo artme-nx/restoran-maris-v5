@@ -1,0 +1,12 @@
+# robots.txt — Restoran Maris, Vodice
+User-agent: *
+Allow: /
+
+# --- AI citation/search bots (NEVER block) ---
+# OAI-SearchBot, ChatGPT-User, Claude-SearchBot, Claude-User,
+# PerplexityBot, Perplexity-User, Googlebot, Bingbot
+
+# --- AI training bots (allowed) ---
+# GPTBot, ClaudeBot, Google-Extended, Meta-ExternalAgent, CCBot
+
+Sitemap: https://artme-nx.github.io/restoran-maris-v5/sitemap.xml

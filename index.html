@@ -3,8 +3,19 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Restoran Maris — Vodice · Riba i plodovi mora</title>
-<meta name="description" content="Restoran Maris u Vodicama — svježa jadranska riba, školjke i plodovi mora. Stella maris, zvijezda mora. Mediteranska kuhinja uz more." />
+<title>Restoran Maris — Vodice, ACI marina | roštilj, riba i odresci</title>
+<meta name="description" content="Restoran Maris, Artina ul. 13a uz ACI marinu u Vodicama. Mediteranska kuhinja: riba i plodovi mora s gradela, odresci, doručak do 12 h. Otvoreno 8–24 h." />
+<link rel="canonical" href="https://artme-nx.github.io/restoran-maris-v5/" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+<!-- TODO[klijent]: favicon je tekstualni logotip u bojama znaka lokala. Zatražiti originalnu datoteku logotipa (MARIS RESTAURANT) za favicon i header. -->
+<meta property="og:type" content="restaurant" />
+<meta property="og:title" content="Restoran Maris — Vodice, ACI marina" />
+<meta property="og:description" content="Mediteranska kuhinja uz ACI marinu u Vodicama. Riba i plodovi mora s gradela, odresci, doručak do 12 h. Otvoreno svaki dan 8–24 h." />
+<meta property="og:url" content="https://artme-nx.github.io/restoran-maris-v5/" />
+<meta property="og:image" content="https://artme-nx.github.io/restoran-maris-v5/img/maris-terasa-aci-marina-vodice.webp" />
+<meta property="og:locale" content="hr_HR" />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -12,8 +23,8 @@
   :root{
     --bg-base:#F7F3EA;        /* off-white / sand */
     --sand:#E9DEC8;           /* warm sand */
-    --teal:#2A9D8F;           /* aegean teal */
-    --teal-deep:#1F7A6F;
+    --teal:#2E8FA6;           /* brand cyan — uzorkovan s logotipa/neonskog znaka lokala */
+    --teal-deep:#226F84;
     --navy:#13314F;           /* deep navy */
     --ink:#1B2A38;
     --mid:#6E7C86;
@@ -59,7 +70,7 @@
   /* ===== HERO ===== */
   .hero{position:relative;height:100vh;min-height:640px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
   .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;will-change:transform;
-    background-image:linear-gradient(rgba(12,40,60,.30),rgba(12,40,60,.18)),url('https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=2400&q=80')}
+    background-image:linear-gradient(rgba(12,40,60,.42),rgba(12,40,60,.30)),url('img/maris-terasa-aci-marina-vodice.webp')}
   .hero-content{position:relative;z-index:2;color:#fff;padding:0 24px}
   .hero .star-big{width:54px;height:54px;margin:0 auto 26px}
   .hero .star-big path,.hero .star-big circle{stroke:#fff;opacity:.92}
@@ -98,8 +109,15 @@
   .menu-col h3{font-family:var(--font-serif);font-style:italic;font-size:30px;color:var(--teal-deep);margin-bottom:8px}
   .menu-col .cat-line{height:1px;background:var(--line);margin-bottom:26px}
   .dish{margin-bottom:26px}
-  .dish .dn{font-family:var(--font-display);font-size:20px;color:var(--ink);font-weight:500}
+  .dish .dn{font-family:var(--font-display);font-size:20px;color:var(--ink);font-weight:500;
+    display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+  .dish .dn .dp{font-family:var(--font-body);font-size:15px;font-weight:500;color:var(--teal-deep);white-space:nowrap}
   .dish .dd{color:var(--mid);font-size:15.5px;margin-top:4px;max-width:46ch}
+  .menu-col h3+.cat-line+.dish{margin-top:0}
+  .menu-col .grp{margin-bottom:44px}
+  .menu-col .grp:last-child{margin-bottom:0}
+  .menu-note{max-width:760px;margin:16px auto 0;text-align:center;color:var(--mid);font-size:14.5px}
+  .menu-note strong{color:var(--ink);font-weight:500}
 
   /* ===== STORY ===== */
   .story{padding:clamp(80px,11vw,140px) 0;display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(40px,6vw,84px);align-items:center}
@@ -120,6 +138,17 @@
   .gal-track figure{flex:0 0 clamp(280px,40vw,460px);scroll-snap-align:center}
   .gal-track img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:3px;filter:saturate(1.02)}
   .gal-track figcaption{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-top:12px}
+
+  /* ===== FAQ ===== */
+  .faq{padding:clamp(70px,10vw,120px) 0;background:var(--sand)}
+  .faq .head{text-align:center;margin-bottom:56px}
+  .faq .head h2{font-size:clamp(30px,4.6vw,54px);color:var(--navy);margin-top:16px}
+  .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3.4vw,48px)}
+  .faq-item{border-top:1px solid var(--line);padding-top:20px}
+  .faq-item h3{font-family:var(--font-display);font-size:19px;color:var(--ink);font-weight:500;margin-bottom:8px;line-height:1.3}
+  .faq-item p{color:var(--mid);font-size:15.5px}
+  .faq-item p a{color:var(--teal-deep);font-weight:500}
+  @media(max-width:900px){.faq-grid{grid-template-columns:1fr}}
 
   /* ===== LOCATION ===== */
   .loc{padding:clamp(80px,11vw,140px) 0;background:var(--navy);color:#fff}
@@ -188,6 +217,70 @@
     *{scroll-behavior:auto}
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "@id": "https://artme-nx.github.io/restoran-maris-v5/#restaurant",
+  "name": "Restoran Maris",
+  "url": "https://artme-nx.github.io/restoran-maris-v5/",
+  "image": [
+    "https://artme-nx.github.io/restoran-maris-v5/img/maris-terasa-aci-marina-vodice.webp",
+    "https://artme-nx.github.io/restoran-maris-v5/img/maris-interijer-neon-znak.webp",
+    "https://artme-nx.github.io/restoran-maris-v5/img/maris-prizene-lignje-pomfrit.webp"
+  ],
+  "telephone": "+385996615770",
+  "priceRange": "€€",
+  "currenciesAccepted": "EUR",
+  "servesCuisine": ["Mediteranska", "Riba i plodovi mora", "Roštilj"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Artina ul. 13a",
+    "addressLocality": "Vodice",
+    "postalCode": "22211",
+    "addressRegion": "Šibensko-kninska županija",
+    "addressCountry": "HR"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 43.7582477, "longitude": 15.7792147 },
+  "hasMap": "https://maps.google.com/?cid=2991319672935498844",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "08:00",
+      "closes": "24:00"
+    }
+  ],
+  "hasMenu": "https://artme-nx.github.io/restoran-maris-v5/#menu",
+  "acceptsReservations": "True",
+  "sameAs": [
+    "https://maps.google.com/?cid=2991319672935498844",
+    "https://www.instagram.com/restoran_maris/",
+    "https://www.tripadvisor.com/Restaurant_Review-g608723-d27691511-Reviews-Restaurant_Maris-Vodice_Sibenik_Knin_County_Dalmatia.html"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://artme-nx.github.io/restoran-maris-v5/#faq",
+  "mainEntity": [
+    {"@type":"Question","name":"Kada je Restoran Maris otvoren?","acceptedAnswer":{"@type":"Answer","text":"Maris je otvoren svaki dan od 8:00 do 24:00. Doručak se poslužuje do 12 h, a kuhinja radi kroz cijeli dan, za ručak i večeru."}},
+    {"@type":"Question","name":"Gdje se restoran nalazi?","acceptedAnswer":{"@type":"Answer","text":"Na adresi Artina ul. 13a, 22211 Vodice, u sklopu ACI marine Vodice. Terasa je uz sam gat, s pogledom na jahte i zaljev."}},
+    {"@type":"Question","name":"Kako rezervirati stol?","acceptedAnswer":{"@type":"Answer","text":"Rezervacije idu telefonom na +385 99 661 5770. U sezoni je rezervacija preporučljiva jer se predvečer terasa brzo popuni."}},
+    {"@type":"Question","name":"Poslužujete li doručak?","acceptedAnswer":{"@type":"Answer","text":"Da, doručak se poslužuje do 12 h. U ponudi su jaja na oko, omleti, kajgana, tost, kroasan te bečki doručak i doručak kuće s pršutom, kulenom i pancetom."}},
+    {"@type":"Question","name":"Ima li terasa pogled na more?","acceptedAnswer":{"@type":"Answer","text":"Ima. Restoran ima otvorenu terasu uz gatove ACI marine, pa je pogled na brodice, jarbole i zaljev. Dio terase je natkriven."}},
+    {"@type":"Question","name":"Imate li vegetarijanska i veganska jela?","acceptedAnswer":{"@type":"Answer","text":"Imamo. Na jelovniku su vegetarijanski rižoto (14,50 €) i vege omlet (9,40 €), a Google profil restorana navodi i veganske obroke."}},
+    {"@type":"Question","name":"Koliko košta objed?","acceptedAnswer":{"@type":"Answer","text":"Google navodi 20–40 € po osobi. Za orijentaciju: crni rižoto od sipe 16,50 €, pašticada s njokima 22,50 €, ramstek 23,50 €, dagnje na buzaru 29,00 € za kilogram."}},
+    {"@type":"Question","name":"Imate li jela za dvoje ili veće društvo?","acceptedAnswer":{"@type":"Answer","text":"Imamo. Miješano meso za 2 osobe stoji 43,00 €, a premium plata za 2 osobe s biftekom, ramstekom i janjetinom 73,00 €. Odresci T-bone i ribeye idu po kili."}},
+    {"@type":"Question","name":"Nudite li hranu za van i dostavu?","acceptedAnswer":{"@type":"Answer","text":"Uz konzumaciju u lokalu, Google profil restorana navodi i hranu za van te dostavu. Detalje potvrdite telefonom."}},
+    {"@type":"Question","name":"Na kojim je jezicima jelovnik?","acceptedAnswer":{"@type":"Answer","text":"Jelovnik je otisnut na hrvatskom, engleskom i njemačkom, sa svim jelima i cijenama."}},
+    {"@type":"Question","name":"Imate li koktele?","acceptedAnswer":{"@type":"Answer","text":"Imamo. Uz jelo se poslužuju kokteli, među njima i Aperol Spritz. Kokteli su posebno istaknuti među oznakama na Google profilu restorana."}},
+    {"@type":"Question","name":"Kakva je ponuda ribe?","acceptedAnswer":{"@type":"Answer","text":"Uz jelovnik s cijenama, na gradelama se pripremaju lignje, riba, tuna steak i riblja plata, a u ponudi su i pržene lignje te salata od hobotnice. Cijene ribe na upit."}}
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -202,10 +295,10 @@
     Maris
   </a>
   <nav class="main" id="nav">
-    <a href="#manifest">Filozofija</a>
     <a href="#menu">Jelovnik</a>
-    <a href="#story">Priča</a>
+    <a href="#story">Gdje smo</a>
     <a href="#gallery">Galerija</a>
+    <a href="#faq">Info</a>
     <a href="#location">Kontakt</a>
   </nav>
   <button class="btn-res" data-open>Rezerviraj stol</button>
@@ -217,23 +310,23 @@
   <div class="hero-bg" id="heroBg"></div>
   <div class="hero-content">
     <svg class="star-big" viewBox="0 0 48 48"><use href="#star"/></svg>
-    <p class="eyebrow">Vodice · Jadran</p>
+    <p class="eyebrow">Vodice · ACI marina</p>
     <h1>Restoran <em>Maris</em></h1>
-    <p class="tag">Stella maris — zvijezda mora. Riba s pučine, svjetlo s horizonta.</p>
+    <p class="tag">Mediteranska kuhinja uz gat. Doručak, ručak i večera, svaki dan od 8 do ponoći.</p>
   </div>
-  <div class="scroll-ind"><span>Zaroni</span><div class="line"></div></div>
+  <div class="scroll-ind"><span>Pogledaj</span><div class="line"></div></div>
 </section>
 
 <!-- MANIFEST -->
 <section class="manifest" id="manifest">
   <div class="wrap">
-    <p class="eyebrow reveal">Naša filozofija</p>
-    <p class="lead reveal">More nije sastojak. More je <em>podrijetlo</em> — sve što stavljamo na stol nosi sol, svjetlo i strpljenje Jadrana.</p>
-    <p class="sub reveal">Ime <em>Maris</em> dolazi iz latinskoga — <i>„od mora"</i>. Po njemu vodimo svaki tanjur: jednostavno, čisto, s poštovanjem prema ribi koju nam jutro donese iz Vodičkog akvatorija.</p>
+    <p class="eyebrow reveal">Tko smo</p>
+    <p class="lead reveal">Stolovi nekoliko koraka od gata, <em>roštilj</em> koji radi od jutra do ponoći, i jelovnik na tri jezika.</p>
+    <p class="sub reveal">Maris je mediteranski restoran u ACI marini u Vodicama, na adresi Artina ul. 13a. Doručak se poslužuje do podne, a poslije toga na red dolaze lignje i riba s gradela, dagnje na buzaru, odresci i pašticada.</p>
     <div class="stats">
-      <div class="reveal"><div class="n" data-count="1962">0</div><div class="l">Obitelj uz more od</div></div>
-      <div class="reveal"><div class="n" data-count="40">0</div><div class="l">Vrsta ribe i školjki</div></div>
-      <div class="reveal"><div class="n" data-count="100">0</div><div class="l">% jadranski ulov</div></div>
+      <div class="reveal"><div class="n" data-count="536">0</div><div class="l">Google recenzija · 4,9 ★</div></div>
+      <div class="reveal"><div class="n" data-count="16">0</div><div class="l">Sati otvoreno, svaki dan</div></div>
+      <div class="reveal"><div class="n" data-count="3">0</div><div class="l">Jezika na jelovniku</div></div>
     </div>
     <div style="max-width:760px;margin:64px auto 0"><div class="horizon reveal"><div class="ln"></div><svg class="star" viewBox="0 0 48 48"><use href="#star"/></svg><div class="ln"></div></div></div>
   </div>
@@ -243,39 +336,73 @@
 <section class="menu-sec" id="menu">
   <div class="wrap">
     <div class="menu-head">
-      <p class="eyebrow reveal">Jelovnik mora</p>
-      <h2 class="reveal">Iz dubine, na svjetlo</h2>
+      <p class="eyebrow reveal">Jelovnik</p>
+      <h2 class="reveal">Od doručka do gradela</h2>
     </div>
     <div class="menu-grid">
       <div class="menu-col reveal">
-        <h3>Riba</h3><div class="cat-line"></div>
-        <div class="dish"><div class="dn">Brancin na lešo</div><div class="dd">Cijeli divlji brancin, blitva s krumpirom, maslinovo ulje s otoka i kap limuna.</div></div>
-        <div class="dish"><div class="dn">Orada s gradela</div><div class="dd">Pečena na žaru, ružmarin i sol, poslužena uz pečeno povrće sezone.</div></div>
-        <div class="dish"><div class="dn">Tuna u kori sezama</div><div class="dd">Kratko pečena jadranska tuna, krema od cvjetače, ulje peršina.</div></div>
-        <div class="dish"><div class="dn">Riblji brodet</div><div class="dd">Spori brodet od miješane ribe i rakovice, palenta, recept naše bake.</div></div>
+        <div class="grp">
+          <h3>Doručak</h3><div class="cat-line"></div>
+          <div class="dish"><div class="dn"><span>Doručak kuće</span><span class="dp">16,50 €</span></div><div class="dd">Kuhano jaje, pršut, kulen, panceta, sir, mlada kapula.</div></div>
+          <div class="dish"><div class="dn"><span>Bečki doručak</span><span class="dp">14,50 €</span></div><div class="dd">Kuhano jaje, šunka, sir, maslac, marmelada.</div></div>
+          <div class="dish"><div class="dn"><span>Quesadilla s jajima, šunkom i sirom</span><span class="dp">13,50 €</span></div></div>
+          <div class="dish"><div class="dn"><span>Jaja na oko (3 jaja)</span><span class="dp">6,90 €</span></div><div class="dd">Sa šunkom 7,90 € · s pancetom 8,40 € · s kobasicom 9,40 €.</div></div>
+          <div class="dish"><div class="dn"><span>Omlet</span><span class="dp">6,90 €</span></div><div class="dd">Sa šunkom ili sirom 7,90 € · šunka i sir 8,40 € · vege omlet 9,40 €.</div></div>
+          <div class="dish"><div class="dn"><span>Kajgana</span><span class="dp">6,90 €</span></div></div>
+          <div class="dish"><div class="dn"><span>Tost šunka i cheddar</span><span class="dp">7,40 €</span></div></div>
+          <div class="dish"><div class="dn"><span>Kroasan</span><span class="dp">3,00 €</span></div><div class="dd">S marmeladom ili čokoladom.</div></div>
+        </div>
+        <div class="grp">
+          <h3>Školjke</h3><div class="cat-line"></div>
+          <div class="dish"><div class="dn"><span>Dagnje na buzaru</span><span class="dp">29,00 € / kg</span></div></div>
+          <div class="dish"><div class="dn"><span>Jakobove kapice</span><span class="dp">45,00 € / kg</span></div></div>
+          <div class="dish"><div class="dn"><span>Kamenice</span><span class="dp">5,50 € / kom</span></div></div>
+        </div>
       </div>
       <div class="menu-col reveal">
-        <h3>Školjke &amp; plodovi mora</h3><div class="cat-line"></div>
-        <div class="dish"><div class="dn">Dagnje na buzaru</div><div class="dd">Vodičke dagnje, bijelo vino, češnjak, peršin i pečeni domaći kruh.</div></div>
-        <div class="dish"><div class="dn">Kamenice s Limskog kanala</div><div class="dd">Sirove, na ledu, s limunom — čisti okus Jadrana.</div></div>
-        <div class="dish"><div class="dn">Crni rižoto</div><div class="dd">Sipa i njezino crnilo, parmezan, kremasti rižoto duboke morske boje.</div></div>
-        <div class="dish"><div class="dn">Jastog na buzaru</div><div class="dd">Za dvoje — jadranski jastog, domaća tjestenina, umak od rajčice i vina.</div></div>
+        <div class="grp">
+          <h3>Tjestenine i rižoti</h3><div class="cat-line"></div>
+          <div class="dish"><div class="dn"><span>Pašticada s njokima</span><span class="dp">22,50 €</span></div><div class="dd">Tradicionalna dalmatinska pašticada.</div></div>
+          <div class="dish"><div class="dn"><span>Pačji ragu s rigatonima</span><span class="dp">20,00 €</span></div></div>
+          <div class="dish"><div class="dn"><span>Teleći rižoto</span><span class="dp">19,00 €</span></div></div>
+          <div class="dish"><div class="dn"><span>Tagliatelle s plodovima mora</span><span class="dp">18,00 €</span></div></div>
+          <div class="dish"><div class="dn"><span>Pljukanci s tartufima i pršutom</span><span class="dp">18,00 €</span></div></div>
+          <div class="dish"><div class="dn"><span>Crni rižoto od sipe</span><span class="dp">16,50 €</span></div></div>
+          <div class="dish"><div class="dn"><span>Ravioli u umaku od crnog vina</span><span class="dp">16,50 €</span></div></div>
+          <div class="dish"><div class="dn"><span>Vegetarijanski rižoto</span><span class="dp">14,50 €</span></div></div>
+        </div>
+        <div class="grp">
+          <h3>Glavna jela &middot; meso</h3><div class="cat-line"></div>
+          <div class="dish"><div class="dn"><span>Premium plata za 2 osobe</span><span class="dp">73,00 €</span></div><div class="dd">Biftek, ramstek, janjetina, pečeni krumpir, povrće na žaru.</div></div>
+          <div class="dish"><div class="dn"><span>Miješano meso za 2 osobe</span><span class="dp">43,00 €</span></div><div class="dd">Kobasice, piletina, pomfrit, povrće na žaru.</div></div>
+          <div class="dish"><div class="dn"><span>T-bone</span><span class="dp">70,00 € / kg</span></div><div class="dd">Prilozi se naplaćuju zasebno.</div></div>
+          <div class="dish"><div class="dn"><span>Ribeye</span><span class="dp">65,00 € / kg</span></div><div class="dd">Prilozi se naplaćuju zasebno.</div></div>
+          <div class="dish"><div class="dn"><span>Biftek</span><span class="dp">28,50 €</span></div><div class="dd">Prilozi se naplaćuju zasebno.</div></div>
+          <div class="dish"><div class="dn"><span>Ramstek</span><span class="dp">23,50 €</span></div><div class="dd">Prilozi se naplaćuju zasebno.</div></div>
+          <div class="dish"><div class="dn"><span>Janjetina na žaru</span><span class="dp">25,00 €</span></div><div class="dd">S pečenim krumpirom.</div></div>
+          <div class="dish"><div class="dn"><span>Teleći kotleti</span><span class="dp">20,00 €</span></div><div class="dd">S pečenim krumpirom.</div></div>
+          <div class="dish"><div class="dn"><span>Cordon bleu</span><span class="dp">18,50 €</span></div><div class="dd">S pomfritom.</div></div>
+          <div class="dish"><div class="dn"><span>Pileći file na žaru</span><span class="dp">17,50 €</span></div><div class="dd">S pomfritom.</div></div>
+        </div>
       </div>
     </div>
+    <!-- TODO[klijent]: cijene ribe i plodova mora nisu objavljene na javnom jelovniku. Dostaviti aktualni cjenik (riba po kili, plate) i po potrebi ostatak ponude (predjela, deserti, karta pića). -->
+    <p class="menu-note reveal"><strong>Riba i plodovi mora s gradela</strong> uz jelovnik: pržene lignje, lignje na žaru, riba na žaru, tuna steak, riblja plata, salata od hobotnice, hobotnica na žaru. Cijene na upit.</p>
+    <p class="menu-note reveal" style="margin-top:10px">Jelovnik je na hrvatskom, engleskom i njemačkom. Cijene su preuzete s jelovnika lokala; moguće su izmjene.</p>
   </div>
 </section>
 
 <!-- STORY -->
 <section class="story wrap" id="story">
   <div class="story-img reveal" data-reveal>
-    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80" alt="Svježa riba na ledu" />
+    <img src="img/maris-ulaz-znak-terasa-vodice.webp" width="900" height="1200" loading="lazy" alt="Ulaz u Restoran Maris sa znakom iznad terase, čaša vina i svijeća na stolu u ACI marini Vodice" />
   </div>
   <div class="story-txt">
-    <p class="eyebrow reveal">Naša priča</p>
-    <h2 class="reveal">Tri naraštaja, jedno more</h2>
-    <p class="reveal">Maris je počeo kao mali obiteljski stol uz vodičku rivu — mjesto gdje se ulov dijelio s prijateljima i susjedima. Danas, <strong>tri naraštaja kasnije</strong>, isto more nas hrani i isti nas horizont vodi.</p>
-    <p class="reveal">Svako jutro odlazimo na ribarnicu prije zore. Biramo samo ono što je toga dana izronilo iz Jadrana — bez kompromisa, bez smrznute prečice. Riba koja ne dođe svježa, ne dolazi na vaš tanjur.</p>
-    <p class="reveal">Kuhamo onako kako je more oduvijek tražilo: <strong>jednostavno i s mjerom</strong>, da okus soli, sunca i strpljenja ostane netaknut.</p>
+    <p class="eyebrow reveal">Gdje smo</p>
+    <h2 class="reveal">Uz gat, od jutra do ponoći</h2>
+    <p class="reveal">Maris stoji na adresi Artina ul. 13a, u <strong>ACI marini u Vodicama</strong>. Terasa je nekoliko koraka od gata, a pogled ide na jarbole i zaljev. Kuhinja radi svaki dan od 8 do ponoći.</p>
+    <p class="reveal">Doručak se poslužuje do podne, dok posade doručkuju prije isplovljavanja: jaja, omleti, doručak kuće s pršutom i kulenom. Poslije podne radi roštilj, a s njega dolaze lignje i riba s gradela, ramstek, biftek te T-bone i ribeye po kili.</p>
+    <p class="reveal">Jelovnik je otisnut na <strong>hrvatskom, engleskom i njemačkom</strong>. Na Googleu Maris ima ocjenu 4,9 iz 536 recenzija.</p>
   </div>
 </section>
 
@@ -283,16 +410,78 @@
 <section class="gal" id="gallery">
   <div class="wrap">
     <p class="eyebrow reveal">Galerija</p>
-    <h2 class="reveal">Svjetlo, sol i stol</h2>
+    <h2 class="reveal">Stol, gat i gradele</h2>
     <p class="hint reveal">Povucite za istraživanje →</p>
   </div>
   <div class="gal-track" id="galTrack">
-    <figure><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=80" alt="Svijetli interijer restorana"><figcaption>Ambijent uz more</figcaption></figure>
-    <figure><img src="https://images.unsplash.com/photo-1535140728325-a4d3707eee61?auto=format&fit=crop&w=1000&q=80" alt="Plodovi mora na tanjuru"><figcaption>Plodovi mora</figcaption></figure>
-    <figure><img src="https://images.unsplash.com/photo-1499744937866-d7e566a20a61?auto=format&fit=crop&w=1000&q=80" alt="Jadranski zalazak sunca"><figcaption>Zalazak nad pučinom</figcaption></figure>
-    <figure><img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1000&q=80" alt="Svježa riba"><figcaption>Jutarnji ulov</figcaption></figure>
-    <figure><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1000&q=80" alt="Školjke"><figcaption>Školjke s Jadrana</figcaption></figure>
-    <figure><img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1000&q=80" alt="More i obala Vodica"><figcaption>Vodička marina</figcaption></figure>
+    <figure><img src="img/maris-interijer-pogled-marina.webp" width="1200" height="900" loading="lazy" alt="Unutrašnjost Restorana Maris sa staklenom stijenom i pogledom na jahte u ACI marini Vodice"><figcaption>Pogled na marinu</figcaption></figure>
+    <figure><img src="img/maris-prizene-lignje-pomfrit.webp" width="1200" height="900" loading="lazy" alt="Pržene lignje s pomfritom i tartar umakom na drvenoj dasci"><figcaption>Pržene lignje</figcaption></figure>
+    <figure><img src="img/maris-dagnje-na-buzaru.webp" width="1200" height="1114" loading="lazy" alt="Dagnje na buzaru u bijeloj zdjeli, posute peršinom"><figcaption>Dagnje na buzaru</figcaption></figure>
+    <figure><img src="img/maris-tuna-steak-blitva.webp" width="800" height="1067" loading="lazy" alt="Tuna steak s gradela na tamnom tanjuru, uz limun i blitvu"><figcaption>Tuna steak</figcaption></figure>
+    <figure><img src="img/maris-riba-na-zaru.webp" width="1200" height="900" loading="lazy" alt="Cijela riba pečena na žaru s maslinovim uljem i limunom"><figcaption>Riba s gradela</figcaption></figure>
+    <figure><img src="img/maris-marina-zalazak.webp" width="900" height="1200" loading="lazy" alt="Zalazak sunca nad brodicama i jarbolima u ACI marini Vodice"><figcaption>Zalazak nad marinom</figcaption></figure>
+    <figure><img src="img/maris-interijer-neon-znak.webp" width="1400" height="1050" loading="lazy" alt="Unutrašnjost restorana s osvijetljenim znakom Maris Restaurant na zidu od bijelog kamena"><figcaption>Interijer</figcaption></figure>
+    <figure><img src="img/maris-koktel-marina.webp" width="512" height="640" loading="lazy" alt="Koktel s limetom i mentom na stolu terase, jarboli i zalazak sunca u pozadini"><figcaption>Kokteli uz gat</figcaption></figure>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow reveal">Česta pitanja</p>
+      <h2 class="reveal">Dobro je znati</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item reveal">
+        <h3>Kada je Restoran Maris otvoren?</h3>
+        <p>Maris je otvoren svaki dan od 8:00 do 24:00. Doručak se poslužuje do 12 h, a kuhinja radi kroz cijeli dan, za ručak i večeru.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>Gdje se restoran nalazi?</h3>
+        <p>Na adresi Artina ul. 13a, 22211 Vodice, u sklopu ACI marine Vodice. Terasa je uz sam gat, s pogledom na jahte i zaljev.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>Kako rezervirati stol?</h3>
+        <p>Rezervacije idu telefonom na <a href="tel:+385996615770">+385 99 661 5770</a>. U sezoni je rezervacija preporučljiva jer se predvečer terasa brzo popuni.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>Poslužujete li doručak?</h3>
+        <p>Da, doručak se poslužuje do 12 h. U ponudi su jaja na oko, omleti, kajgana, tost, kroasan te bečki doručak i doručak kuće s pršutom, kulenom i pancetom.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>Ima li terasa pogled na more?</h3>
+        <p>Ima. Restoran ima otvorenu terasu uz gatove ACI marine, pa je pogled na brodice, jarbole i zaljev. Dio terase je natkriven.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>Imate li vegetarijanska i veganska jela?</h3>
+        <p>Imamo. Na jelovniku su vegetarijanski rižoto (14,50 €) i vege omlet (9,40 €), a Google profil restorana navodi i veganske obroke.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>Koliko košta objed?</h3>
+        <p>Google navodi 20–40 € po osobi. Za orijentaciju: crni rižoto od sipe 16,50 €, pašticada s njokima 22,50 €, ramstek 23,50 €, dagnje na buzaru 29,00 € za kilogram.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>Imate li jela za dvoje ili veće društvo?</h3>
+        <p>Imamo. Miješano meso za 2 osobe stoji 43,00 €, a premium plata za 2 osobe s biftekom, ramstekom i janjetinom 73,00 €. Odresci T-bone i ribeye idu po kili.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>Nudite li hranu za van i dostavu?</h3>
+        <p>Uz konzumaciju u lokalu, Google profil restorana navodi i hranu za van te dostavu. Detalje potvrdite telefonom.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>Na kojim je jezicima jelovnik?</h3>
+        <p>Jelovnik je otisnut na hrvatskom, engleskom i njemačkom, sa svim jelima i cijenama.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>Imate li koktele?</h3>
+        <p>Imamo. Uz jelo se poslužuju kokteli, među njima i Aperol Spritz. Kokteli su posebno istaknuti među oznakama na Google profilu restorana.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>Kakva je ponuda ribe?</h3>
+        <p>Uz jelovnik s cijenama, na gradelama se pripremaju lignje, riba, tuna steak i riblja plata, a u ponudi su i pržene lignje te salata od hobotnice. Cijene ribe na upit.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -301,20 +490,21 @@
   <div class="wrap loc-grid">
     <div>
       <p class="eyebrow reveal">Posjetite nas</p>
-      <h2 class="reveal">Na rivi u Vodicama</h2>
-      <p class="reveal">Naći ćete nas uz more, ondje gdje marina dodiruje staru jezgru — palme, jarboli i miris soli. Stol uz horizont čeka.</p>
+      <h2 class="reveal">Artina 13a, ACI marina</h2>
+      <!-- TODO[klijent]: parking — nemamo potvrđen podatak o parkingu za goste. Dopuniti kad klijent potvrdi. -->
+      <p class="reveal">Restoran Maris nalazi se na adresi Artina ul. 13a, 22211 Vodice, unutar ACI marine Vodice (plus kod QQ5H+7M). Stolovi su nekoliko koraka od gata, s pogledom na jarbole i vodički zaljev. Restoran radi svaki dan od 8 do ponoći: doručak do podne, kad posade doručkuju prije isplovljavanja, zatim ručak i večera s gradela. Jelovnik je na hrvatskom, engleskom i njemačkom. Stol se rezervira telefonom.</p>
       <div class="hours reveal">
-        <div class="row"><span>Ponedjeljak — Petak</span><span>12:00 — 23:00</span></div>
-        <div class="row"><span>Subota</span><span>12:00 — 24:00</span></div>
-        <div class="row"><span>Nedjelja</span><span>12:00 — 23:00</span></div>
+        <div class="row"><span>Ponedjeljak — Nedjelja</span><span>08:00 — 24:00</span></div>
+        <div class="row"><span>Doručak</span><span>do 12:00</span></div>
       </div>
       <div class="contact reveal">
-        <p style="color:rgba(255,255,255,.78);margin-bottom:8px">Vodice, Hrvatska</p>
+        <p style="color:rgba(255,255,255,.78);margin-bottom:8px">Artina ul. 13a, 22211 Vodice, Hrvatska</p>
         Rezervacije: <a href="tel:+385996615770">+385 99 661 5770</a>
+        <p style="color:rgba(255,255,255,.78);margin-top:14px;font-size:14.5px">Instagram: <a href="https://www.instagram.com/restoran_maris/" rel="noopener">@restoran_maris</a></p>
       </div>
     </div>
     <div class="map-wrap reveal">
-      <iframe class="map-frame" src="https://maps.google.com/maps?q=Restoran+Maris+Vodice&output=embed" loading="lazy" title="Restoran Maris Vodice — karta"></iframe>
+      <iframe class="map-frame" src="https://maps.google.com/maps?q=Artina+ul.+13a,+22211+Vodice&z=17&output=embed" loading="lazy" title="Restoran Maris, Artina ul. 13a, Vodice — karta"></iframe>
     </div>
   </div>
 </section>
@@ -324,15 +514,17 @@
   <div class="wrap">
     <svg class="star" viewBox="0 0 48 48"><use href="#star"/></svg>
     <div class="fname">Restoran Maris</div>
-    <div class="ftag">Stella maris — zvijezda mora</div>
+    <div class="ftag">Artina ul. 13a · ACI marina Vodice</div>
     <div class="fphone"><a href="tel:+385996615770">+385 99 661 5770</a></div>
     <div class="fcols">
       <a href="#menu">Jelovnik</a>
-      <a href="#story">Priča</a>
+      <a href="#story">Gdje smo</a>
       <a href="#gallery">Galerija</a>
+      <a href="#faq">Info</a>
       <a href="#location">Kontakt</a>
+      <a href="https://www.instagram.com/restoran_maris/" rel="noopener">Instagram</a>
     </div>
-    <div class="cr">© 2026 Restoran Maris · Vodice, Jadran · Sva prava pridržana</div>
+    <div class="cr">© 2026 Restoran Maris · Artina ul. 13a, 22211 Vodice · Otvoreno svaki dan 8–24 h</div>
   </div>
 </footer>
 
@@ -344,11 +536,11 @@
   <button class="x" data-close aria-label="Zatvori">×</button>
   <svg class="star" viewBox="0 0 48 48"><use href="#star"/></svg>
   <h3>Rezervirajte stol</h3>
-  <p>Javite nam se i čuvamo vam mjesto uz more.</p>
+  <p>Pošaljite upit ili nazovite. U sezoni je rezervacija preporučljiva jer se terasa predvečer brzo popuni.</p>
   <form onsubmit="return false">
     <label>Ime i prezime</label><input type="text" placeholder="Vaše ime" />
     <label>Broj gostiju</label><input type="number" min="1" placeholder="2" />
-    <label>Datum i vrijeme</label><input type="text" placeholder="npr. 12.07. u 20:00" />
+    <label>Datum i vrijeme</label><input type="text" placeholder="npr. 20.07. u 20:00" />
     <label>Napomena</label><textarea rows="3" placeholder="Posebne želje"></textarea>
     <button class="submit" type="submit">Pošalji upit</button>
   </form>
