@@ -68,7 +68,7 @@
   header.solid .nav-toggle span{background:var(--navy)}
 
   /* ===== HERO ===== */
-  .hero{position:relative;height:100vh;min-height:640px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
+  .hero{position:relative;height:100vh;height:100svh;min-height:640px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
   .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;will-change:transform;
     background-image:linear-gradient(rgba(12,40,60,.42),rgba(12,40,60,.30)),url('img/maris-terasa-aci-marina-vodice.webp')}
   .hero-content{position:relative;z-index:2;color:#fff;padding:0 24px}
@@ -179,7 +179,7 @@
   /* ===== RESERVE PANEL ===== */
   .ov{position:fixed;inset:0;background:rgba(10,25,40,.5);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .4s;z-index:300}
   .ov.on{opacity:1;pointer-events:auto}
-  .res-panel{position:fixed;top:0;right:0;width:min(440px,100vw);height:100vh;background:var(--bg-base);z-index:301;
+  .res-panel{position:fixed;top:0;right:0;width:min(440px,100vw);height:100vh;height:100svh;background:var(--bg-base);z-index:301;
     transform:translateX(100%);transition:transform .5s cubic-bezier(.7,0,.2,1);padding:48px clamp(28px,4vw,44px);overflow-y:auto}
   .res-panel.on{transform:translateX(0)}
   .res-panel .x{position:absolute;top:24px;right:24px;background:none;border:0;font-size:26px;cursor:pointer;color:var(--navy)}
@@ -557,7 +557,7 @@ const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 /* Lenis */
 let lenis;
 if(!reduce){
-  lenis = new Lenis({lerp:0.2, wheelMultiplier:1, smoothWheel:true, syncTouch:false});
+  lenis = new Lenis({lerp:0.1, wheelMultiplier:1, smoothWheel:true, syncTouch:false}); window.__lenis = lenis;
   gsap.registerPlugin(ScrollTrigger);
   gsap.ticker.add(t=>lenis.raf(t*1000));
   gsap.ticker.lagSmoothing(0);
@@ -567,7 +567,7 @@ if(!reduce){
 /* Header solid */
 const hdr=document.getElementById('hdr');
 const setHdr=()=>hdr.classList.toggle('solid', window.scrollY>60);
-setHdr(); window.addEventListener('scroll',setHdr);
+setHdr(); window.addEventListener('scroll', setHdr, {passive:true});
 
 /* Mobile nav */
 const nav=document.getElementById('nav'), tg=document.getElementById('navToggle');
@@ -631,6 +631,48 @@ if(lenis){
     });
   });
 }
+</script>
+
+<script>
+/* QA scroll-fix — glatko, bez lomova i preskakanja (mobitel prioritet) */
+(function(){
+  var lenis = window.__lenis || null;
+
+  /* jedinstveni smooth-scroll ulaz: Lenis ako postoji, inače nativni */
+  window.__smoothTo = function(target){
+    var el = (typeof target === 'string') ? document.querySelector(target) : target;
+    if(!el) return;
+    if(lenis){ lenis.scrollTo(el, {offset:0, duration:1.1}); }
+    else { el.scrollIntoView({behavior:'smooth', block:'start'}); }
+  };
+
+  /* anchor linkovi kroz isti ulaz — nema nativnog skoka preko Lenisa */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    var href = a.getAttribute('href');
+    if(!href || href === '#') return;
+    a.addEventListener('click', function(e){
+      var el = document.querySelector(href);
+      if(!el) return;
+      e.preventDefault();
+      window.__smoothTo(el);
+      if(history.replaceState) history.replaceState(null, '', href);
+    });
+  });
+
+  /* ScrollTrigger pozicije preračunati kad se layout slegne (slike!) */
+  if(window.ScrollTrigger){
+    var refresh = function(){ ScrollTrigger.refresh(); };
+    window.addEventListener('load', refresh);
+    if(document.fonts && document.fonts.ready) document.fonts.ready.then(refresh);
+    document.querySelectorAll('img').forEach(function(img){
+      if(!img.complete) img.addEventListener('load', refresh, {once:true});
+    });
+    var rt; window.addEventListener('resize', function(){
+      clearTimeout(rt); rt = setTimeout(refresh, 150);
+    }, {passive:true});
+    setTimeout(refresh, 600);
+  }
+})();
 </script>
 </body>
 </html>
